@@ -5,6 +5,7 @@ metadata:
   labels:
     run: wildfly-redis-new
   name: wildfly-redis-new
+  namespace: dev  
 spec:
   replicas: 1
   selector:
