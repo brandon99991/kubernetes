@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: http-go-ds
+spec:
+  selector:
+    matchLabels:
+      app: http-go-ds
+  template:
+    metadata:
+      labels:
+       app: http-go-ds
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+      containers:
+      - name: http-go
+        image: brandon9999/http-go

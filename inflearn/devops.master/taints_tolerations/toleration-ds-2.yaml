@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: toleration-ds-2
+spec:
+  selector:
+    matchLabels:
+      app: toleration-ds-2
+  template:
+    metadata:
+      labels:
+        app: toleration-ds-2
+    spec:
+      containers:
+      - name: nx2
+        image: nginx
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"

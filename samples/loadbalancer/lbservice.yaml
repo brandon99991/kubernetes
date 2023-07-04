@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chk-hn-service
+spec:
+  selector:
+    app: chk-hn
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

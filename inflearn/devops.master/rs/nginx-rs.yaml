@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-jenkins
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jenkins-test
+  template:
+    metadata:
+      labels:
+        app: jenkins-test
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins
+        ports: 
+        - containerPort: 80

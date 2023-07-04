@@ -1,0 +1,1 @@
+kubectl create ns office --dry-run=client -o yaml

@@ -1,0 +1,9 @@
+# inflearn
+
+#ready install metalLB
+
+kubectl create deployment chk-hn --image=sysnet4admin/chk-hn
+
+kubectl scale deployment chk-hn --replicas=2
+
+kubectl expose deployment chk-hn --type=LoadBalancer --port=80 --name=chk-hn-lb

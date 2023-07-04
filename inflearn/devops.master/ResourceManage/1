@@ -1,0 +1,108 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+EDITOR=vi
+export EDITOR
+set -o vi
+#export PS1="[\$LOGNAME@`hostname`:\$PWD]$ "
+export PS1="[\$LOGNAME@`hostname`:\>]$ "
+
+alias sp="source ~/.bash_profile"
+alias vp="vi ~/.bash_profile"
+
+alias mywork="cd ~/workspace"
+
+#export JAVA_HOME=/mnt/c/DevWorkSpace/DOCKER/inflearn-jenkins/jdk-11.0.2
+#export PATH=$JAVA_HOME/bin:$TOMCAT_HOME/bin:$PATH
+
+export PATH=~/bin:$PATH
+
+############################################################
+# System Alias
+############################################################
+alias netchk="netstat -an | grep"
+alias pschk="ps -ef | grep -i"
+
+############################################################
+# Docker Alias
+############################################################
+alias dlogin="sudo docker login"
+alias dlogout="sudo docker logout"
+alias dstart="sudo service docker start"
+alias dstop="sudo service docker stop"
+alias dansible="docker start ansible-server"
+alias ddocker="docker start docker-server"
+alias dps="sudo docker ps"
+alias dpsa="sudo docker ps -a"
+alias dimg="sudo docker images"
+alias dinfo="sudo docker info"
+alias dnet="docker network ls"
+alias dinspect="docker network inspect bridge"
+#alias dexa="docker exec -it ansible-server bash"
+#alias dexd="docker exec -it docker-server bash"
+#alias dbuild="sudo docker build ./"
+#alias drun="sudo docker run -it [image]"
+#alias dpush="sudo docker push [image]"
+#alias drmi="sudo docker rmi [image]"
+#alias drm="sudo docker rm -f $(docker ps -aq --filter ancestor=brandon9999/hellodocker)"
+#alias dping="docker run alpine ping localhost"
+
+############################################################
+# K8S Alias
+############################################################
+alias k="kubectl"
+alias kaf="kubectl apply -f "
+alias kc="kubectl create"
+alias kd="kubectl delete"
+alias kcf="kubectl create -f "
+alias kdf="kubectl delete -f "
+alias kdrs="kubectl delete rs"
+alias kdrc="kubectl delete rc"
+alias kdaa="kubectl delete all --all"
+alias kexec="kubectl exec -it $1"
+alias kdesf="kubectl describe -f"
+
+alias kglimit="kubectl get limitrange"
+alias kdlimit="kubectl describe limitrange"
+alias kgquota="kubectl get resourcequota"
+alias kdquota="kubectl describe resourcequota"
+
+
+#alias mprofile="minikube profile list"
+#alias mci="kubectl cluster-info"
+#alias msvc="minikube service list"
+#alias mport="docker port minikube"
+#alias maddon="minikube addons list"
+#alias mstatus="minikube status"
+alias kv="kubectl version --client --output=yaml"
+alias kg="kubectl get"
+alias kga="kubectl get all"
+alias kganame="kubectl get all --all-namespaces"
+alias kgnode="kubectl get nodes"
+alias kgnode2="kubectl get nodes -o wide"
+alias kgname="kubectl get namespace"
+alias kgpname="kubectl get pod --all-namespaces"
+alias kgp="kubectl get pods"
+alias kgp2="kubectl get pod -o wide"
+alias kgs="kubectl get services"
+alias kgd="kubectl get deployments"
+alias kgc="kubectl get configmap"
+alias kgsec="kubectl get secret"
+alias kgrs="kubectl get rs"
+alias kgrc="kubectl get rc"
+alias kgi="kubectl get ing"
+alias kdesp="kubectl describe pod"
+alias kdesd="kubectl describe deployment"
+alias kdess="kubectl describe service"
+
+#alias kpf="nohup kubectl port-forward --address=0.0.0.0 deployment/cicd-deployment 32000:8080 &"

@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: dev1
+  name: deployment-manager
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets", "deployments", "secrets"]
+  verbs: ["get", "watch", "list", "create", "update", "patch", "delete"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: deployment-manager
+  namespace: dev1
+subjects:
+- kind: User
+  name: brandon9999
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: deployment-manager
+  apiGroup: rbac.authorization.k8s.io
